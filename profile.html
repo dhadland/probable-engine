@@ -1,0 +1,31 @@
+<section id="about">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-5 col-md-6">
+                <div class="about-img">
+                    <img src="<?= URL . ($user->profile ?? 'img/about-img.jpg') ?>" alt="">
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-md-6">
+                <div class="about-content">
+                    <ul class="list-group">
+                        <li class="list-group-item"><b>First Name :</b> <?= $user->first ?></li>
+                        <li class="list-group-item"><b>Last Name :</b> <?= $user->last ?></li>
+                        <li class="list-group-item"><b>Email :</b> <?= $user->email ?></li>
+                        <?php if($user->gender != 'none'): ?>
+                            <li class="list-group-item"><b>Gender :</b> <?= $user->gender ?></li>
+                        <?php endif; ?>
+                        <?php if($user->bio != ''): ?>
+                            <li class="list-group-item"><b>Bio :</b> <?= $user->bio ?></li>
+                        <?php endif; ?>
+                        <li class="list-group-item"><a class="btn btn-primary" href="<?= URL ?>setting">Edit Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section><!-- #about -->

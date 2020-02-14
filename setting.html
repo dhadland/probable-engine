@@ -1,0 +1,57 @@
+<section id="about">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-5 col-md-6">
+                <div class="about-img">
+                    <img src="<?= URL . ($user->profile ?? 'img/about-img.jpg') ?>" alt="">
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-md-6">
+                <div class="about-content">
+                    <div class="card">
+                        <form action="<?= URL ?>setting/save" class="form card-body" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="text" name="first" class="form-control" id="first" placeholder="First Name" value="<?= $user->first ?>" required minlength="4"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="last" class="form-control" id="last" placeholder="Last Name" value="<?= $user->last ?>" required minlength="4"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" value="<?= $user->email ?>" required />
+                            </div>
+                            <div class="form-group">
+                                <select name="gender" class="form-control" id="">
+                                    <option value="">Select gender</option>
+                                    <option value="male" <?= ($user->gender == 'male') ? 'selected' : '' ?> >Male</option>
+                                    <option value="female" <?= ($user->gender == 'female') ? 'selected' : '' ?>>Female</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="file" name="profile" id="profile" class="d-none" />
+                                <label for="profile" class="btn btn-primary text-white"><i class="fa fa-file-image-o"></i> Select profile picture</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Your Password" value="" />
+                                <small>(Leave empty if you don't wanna change your password)</small>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password" value="" />
+                                <small>(Leave empty if you don't wanna change your password)</small>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" name="bio" id="bio" placeholder="About you"><?= $user->bio ?></textarea>
+                            </div>
+                            <button type="submit">Update Profile</button>
+                            <div id="sendmessage" class="mt-2">Profile Updated!</div>
+                            <div id="errormessage" class="mt-2"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section><!-- #about -->
